@@ -7,19 +7,27 @@
         <title>My First Webpage</title>
     </head>
     <body>
-        <h1>A Webpage About Me</h1>
+        <h1 id="main-header">A Webpage About Me</h1>
         <img
             src="https://static.vecteezy.com/system/resources/previews/012/101/776/original/icon-of-natural-20-d20-dice-roll-free-vector.jpg"
             alt="Image of a 20-sided die"
             id="main-image"
         />
+        <button
+            style="width: 200px; font-size: 20px"
+            onclick="toggleHeader()"
+            id="header-button"
+        >
+            Click Me!
+        </button>
         <section>
             <article>
                 <h2>Introduction</h2>
-                <p>
+                <p id="bio-text">
                     Hi, my name is James. I'm from Huntington, WV. I am 37 and I
                     have two kids, a dog and a cat.
                 </p>
+                <button style="width: 200px; font-size: 20px; margin: 20px;" onclick="changeColor()">Make it fancy</button>
                 <div class="list-flex">
                     <div class="list">
                         <h2>My Interests</h2>
@@ -37,8 +45,28 @@
                             <li>Orange</li>
                         </ol>
                     </div>
+                    <button onclick="changeBorder()">Click me!</button>
                 </div>
             </article>
         </section>
+        <script>
+            let mainHeader = document.getElementById("main-header");
+            let bioText = document.getElementById("bio-text");
+            const lists = document.getElementsByClassName("list");
+
+            function toggleHeader() {
+                mainHeader.textContent = "I'm Learning JavaScript :)";
+            }
+
+            function changeColor() {
+                bioText.style.color = "blue";
+            }
+
+            function changeBorder() {
+                for (let i=0; i<lists.length;i++) {
+                    lists[i].style.border = "5px double green"
+                }
+            }
+        </script>
     </body>
 </html>
